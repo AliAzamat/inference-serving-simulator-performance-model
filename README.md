@@ -94,9 +94,3 @@ python3 -m servesim.compare                          # prediction vs measurement
 | `servesim/model.py` | Closed-form performance model and its derivation |
 | `servesim/compare.py` | Prediction vs. simulation, p99 calibration, capacity planning on unseen seeds |
 | `PREDICTIONS.md` | Model output recorded before the comparison |
-
-## Limitations
-
-- **The costs are invented.** Prefill and decode costs are round numbers chosen for the exercise, not measured from a GPU. The method carries over to real hardware, but the specific numbers don't.
-- **Several real serving behaviours are left out:** paged or shared KV cache, chunked prefill, preemption, speculative decoding, and multiple replicas.
-- **The tail correction is a single factor.** One measured/predicted ratio is applied at every rate, but the real gap widens near the knee, which is why the 6 s and 8 s plans don't hold on every seed.
